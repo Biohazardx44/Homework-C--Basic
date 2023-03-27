@@ -16,21 +16,13 @@ namespace Domain.Classes
             get => _sharesPrice;
             private set => _sharesPrice = value;
         }
-        public CEO(string firstName, string lastName, int salary)
+        public CEO(string firstName, string lastName, int salary, Employee[] company)
         {
             FirstName = firstName;
             LastName = lastName;
             Salary = salary;
             Role = Enums.RoleEnum.CEO;
-
-            Company = new Employee[]
-            {
-                new Contractor("Bob", "Bobert", 8, 100, new Manager("Mona", "Monalisa", 2000)),
-                new Contractor("Rick", "Rickert", 9, 90, new Manager("Igor", "Igorsky", 2500)),
-                new Manager("Mona", "Monalisa", 2000),
-                new Manager("Igor", "Igorsky", 2500),
-                new SalesPerson("Lea", "Leova")
-            };
+            Company = company;
         }
 
         public override double GetSalary()

@@ -31,7 +31,15 @@ Contractor mainContractor = new Contractor("Jimmy", "Hilton", 15, 500, mainManag
 Console.WriteLine($"The manager that is responsible for {contractor.FirstName} {contractor.LastName} is in the {contractor.CurrentPosition()}.");
 Console.WriteLine($"The manager that is responsible for {mainContractor.FirstName} {mainContractor.LastName} is in the {mainContractor.CurrentPosition()}.");
 Console.WriteLine("=====================================");
-CEO mainCEO = new CEO("Ron", "Ronsky", 1500) { Shares = 8 };
+Employee[] company = new Employee[]
+{
+    new Contractor("Bob", "Bobert", 8, 100, new Manager("Mona", "Monalisa", 2000)),
+    new Contractor("Rick", "Rickert", 9, 90, new Manager("Igor", "Igorsky", 2500)),
+    new Manager("Mona", "Monalisa", 2000),
+    new Manager("Igor", "Igorsky", 2500),
+    new SalesPerson("Lea", "Leova")
+};
+CEO mainCEO = new CEO("Ron", "Ronsky", 1500, company) { Shares = 8 };
 
 mainCEO.AddSharesPrice(175);
 Console.WriteLine("CEO:");
